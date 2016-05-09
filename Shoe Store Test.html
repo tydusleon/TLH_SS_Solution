@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://guarded-hamlet-55092.herokuapp.com/" />
+<title>JanuaryPage_Testcase</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">JanuaryPage_Testcase</td></tr>
+</thead><tbody>
+<!--This is the Shoe Store Test Suite-->
+<!--1) Homepage Test-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Welcome to Shoe Store!</td>
+</tr>
+<!--Loop through List of Shoes where label value is parameterized-->
+<tr>
+	<td>select</td>
+	<td>id=brand</td>
+	<td>label=Andre Assous</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=search_button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Andre Assous's Shoes</td>
+</tr>
+<!--Enhancement 1 - "Back" link needed to return home-->
+<!---->
+<!--2) Shoe Month Test-->
+<!--Loop through List of Months where link value is parameterized-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=January</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>January's Shoes</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=remind_email_input</td>
+	<td>tydusleon$yahoo.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=remind_email_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Invalid email format. Ex. name@example.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=remind_email_input</td>
+	<td>tydusleon@gmail.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=remind_email_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Thanks! We will notify you of our new shoes at </td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=promo_code_input</td>
+	<td>A12345</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=promo_code_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Invalid code format</td>
+</tr>
+<!--Defect 1 - Valid  Promotional Code Format Unknown-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Problem Definition</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Welcome to The Shoe Store</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Report An Issue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=issue_title</td>
+	<td>My New Issue</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=issue_description</td>
+	<td>The Promotional Code valid format is unknown...&nbsp;&nbsp;Please advise.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=issue_title</td>
+	<td>Valid Promotional Code?</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=issue_severity</td>
+	<td>label=Medium</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=issue_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Issues</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Valid Promotional Code?</td>
+</tr>
+<!--if  Notify assertElementPresnt = true then loop through number of instances-->
+<tr>
+	<td>assertElementPresent</td>
+	<td></td>
+	<td>Notify me when this shoe is available</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=form.notification_email_form &gt; input[name=&quot;email&quot;]</td>
+	<td>tydusleon$yahoo.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.notification_email_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Invalid email format. Ex. name@example.com</td>
+</tr>
+<!--Defect 2 - Invalid email format processed as valid-->
+<tr>
+	<td>type</td>
+	<td>css=form.notification_email_form &gt; input[name=&quot;email&quot;]</td>
+	<td>tydusleon@gmail.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.notification_email_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Thanks! We will notify you when this shoe is available</td>
+</tr>
+<!--Enhancement 2 - "Back" link needed to return home-->
+</tbody></table>
+</body>
+</html>
